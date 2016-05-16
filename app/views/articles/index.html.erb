@@ -1,0 +1,70 @@
+<style type="text/css">
+body{background: #999;
+  margin-left: 310px;
+  
+
+  }
+  h1{margin-left: 210px;
+    margin-bottom: 50px;
+    color: rgb(250,250,250);
+text-shadow:0 1px 0 #111, 1px 1px 1px #999;
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 350%;
+}
+a { 
+    text-decoration: none; 
+     border: 1px solid #333; 
+    display: inline-block;
+    padding: 5px 15px; 
+    text-decoration: none; 
+    color: #000; 
+   } 
+   a:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); 
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); 
+    color: #a00;
+  }
+    table{border: 1px solid #333;
+          margin-top: 10px;
+          margin-left: 100px;
+          font-family: 'Times New Roman', Times, serif; 
+    font-size: 150%;
+    }
+  th{color:rgb(250,250,250); 
+  }
+  #s{
+    height: 20px;
+    width: 750px;
+    background: rgb(250,250,250);
+    margin-top: 40px;
+    margin-right: 100px;
+
+  }
+  #w{margin-left: 100px;
+  font-family: 'Times New Roman', Times, serif; 
+    font-size: 150%;}
+
+</style>
+<h1>Listing Articles</h1>
+<div id="w"><%= link_to 'New article', new_article_path %> </div>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @articles.each do |article| %> 
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td ><%= button_to 'Destroy', article_path(article), 
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<div id="s"></div>
+

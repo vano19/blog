@@ -1,0 +1,68 @@
+<style type="text/css">
+body{background: #999;
+  margin-left: 310px;
+
+  }
+  h2{margin-left: 210px;
+    margin-bottom: 50px;
+    color: rgb(250,250,250);
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 150%;
+    text-shadow:0 1px 0 #111, 1px 1px 1px #999;
+}
+a { 
+    text-decoration: none; 
+     border: 1px solid #333; 
+    display: inline-block;
+    padding: 5px 15px; 
+    text-decoration: none; 
+    color: #000; 
+   } 
+   a:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); 
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); 
+    color: #a00;
+  }
+    
+  th{color:rgb(250,250,250); 
+  }
+  #s{
+    height: 20px;
+    width: 750px;
+    background: rgb(250,250,250);
+    margin-top: 40px;
+    margin-right: 100px;
+
+  }
+  #w{width: 300px;
+    margin-left: 200px;
+    
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 100%;
+    border: 1px solid #333;
+    padding-left: 10px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+
+}
+
+</style>
+<div id="w"><p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %> </div>
+</p> </div>
+ 
+<h2>Comments</h2>
+<div id="w"><%= render @article.comments %> </div>
+ 
+<h2>Add a comment:</h2>
+<div id="w"><%= render 'comments/form' %>
+ 
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %> </div>
+<div id="s"></div>

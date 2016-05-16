@@ -1,0 +1,84 @@
+<style type="text/css">
+body{background: #999;
+  margin-left: 310px;
+
+  }
+  h1{margin-left: 210px;
+    margin-bottom: 50px;
+    color: rgb(250,250,250);
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 350%;
+    text-shadow:0 1px 0 #111, 1px 1px 1px #999;
+}
+a { 
+    text-decoration: none; 
+     border: 1px solid #333; 
+    display: inline-block;
+    padding: 5px 15px; 
+    text-decoration: none; 
+    color: #000; 
+   } 
+   a:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3); 
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); 
+    color: #a00;
+  }
+   
+  th{color:rgb(250,250,250); 
+  }
+  #s{
+    height: 20px;
+    width: 700px;
+    background: rgb(250,250,250);
+    margin-top: 40px;
+    margin-right: 100px;
+  }
+  #w{width: 300px;
+    margin-left: 200px;
+    color: rgb(250,250,250);
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 150%;
+    border: 1px solid #333;
+    padding-left: 10px;
+    
+  }
+</style>
+<h1>Edit article</h1>
+ <div id="w">
+<%= render 'form' %>
+ 
+<%= link_to 'Back', articles_path %>
+ 
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %> </div>
+ 
+<div id="s"></div>
